@@ -1,13 +1,21 @@
 // Selection Sort
-
+// ? O(n^2)
 // ! Slow
-
-let arr: number[] = [4, 3, 42, 54, 11, 76];
-var last = 0;
-for (let index = 0; index < arr.length; index++) {
-  let min = 0;
-  if (min > arr[index]) {
-    min = arr[index];
+var arr = [4, 300, 42, 54, 11, 76];
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    var min = arr[i];
+    for (let index = i; index < arr.length; index++) {
+      if (min > arr[index + 1]) {
+        let high = min;
+        min = arr[index + 1];
+        arr[index + 1] = high;
+      }
+    }
+    arr[i] = min;
   }
-  console.log(min);
+  return arr;
 }
+
+const newArr = selectionSort(arr);
+console.log(newArr);
